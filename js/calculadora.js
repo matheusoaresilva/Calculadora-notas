@@ -44,3 +44,5 @@ function calcula(nota1, nota2) {
   return MF;
 
 }
+
+
