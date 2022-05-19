@@ -31,16 +31,41 @@ for(let i = 0; i < alunos.length; i++){
   
   if (notaValida) {
     let MF = (nota1 + nota2) / 2;
-    console.log(MF);
-  
-    tdMF.textContent = MF.toFixed(2);
+    
+    tdMF.textContent = MF.toFixed(1);
   }
 }
 
-let botaoAdicionar = document.querySelector("#adiciona-aluno");
+let buttonAdicionar = document.querySelector("#adicionar-aluno");
 
-botaoAdicionar.addEventListener("click", function(event) {
+buttonAdicionar.addEventListener("click", function(event) {
   event.preventDefault();
-})
+
+  let form = document.querySelector("#form-adiciona");
+
+  let nome = form.nome.value;
+  let primeiraNota = form.nota1.value;
+  let segundaNota = form.nota2.value;
+
+
+  let alunoTr = document.createElement("tr");
+
+  
+  let nomeTd = document.createElement("td");
+  let nota1Td = document.createElement("td");
+  let nota2Td = document.createElement("td");
+  let mfTd = document.createElement("td");
+
+  nomeTd.textContent = nome;
+  nota1Td.textContent = primeiraNota;
+  nota2Td.textContent = segundaNota;
+
+  alunoTr.appendChild(nomeTd);
+  alunoTr.appendChild(nota1Td);
+  alunoTr.appendChild(nota2Td);
+
+  let tabela = document.querySelector("#tabela-alunos");
+  tabela.appendChild(alunoTr);
+});
 
 
